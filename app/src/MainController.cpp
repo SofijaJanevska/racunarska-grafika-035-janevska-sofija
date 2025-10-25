@@ -2,6 +2,7 @@
 
 #include <engine/platform/PlatformController.hpp>
 #include <engine/platform/PlatformEventObserver.hpp>
+#include <engine/resources/ResourcesController.hpp>
 #include <spdlog/spdlog.h>
 
 namespace app {
@@ -15,5 +16,16 @@ namespace app {
             return false;
         }
         return true;
+    }
+
+    void MainController::draw_backpack() {
+        auto resources                    = engine::core::Controller::get<engine::resources::ResourcesController>();
+        engine::resources::Model *model   = resources->model("backpack");
+        engine::resources::Shader *shader = resources->shader("basic");
+        model->draw(shader);
+    }
+
+    void MainController::draw() {
+        draw_backpack();
     }
 }

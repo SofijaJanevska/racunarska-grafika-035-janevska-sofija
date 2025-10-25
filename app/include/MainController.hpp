@@ -9,6 +9,10 @@ namespace app {
 
         bool loop() override;
 
+        void draw() override;
+
+        void draw_backpack();
+
     public:
         std::string_view name() const override {
             return "app::MainController";
