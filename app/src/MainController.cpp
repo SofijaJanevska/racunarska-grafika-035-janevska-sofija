@@ -50,6 +50,14 @@ namespace app {
         backpack->draw(shader);
     }
 
+    void MainController::draw_skybox() {
+        auto resources = engine::core::Controller::get<engine::resources::ResourcesController>();
+        auto skybox    = resources->skybox("mountain_skybox");
+        auto shader    = resources->shader("skybox");
+        auto graphics  = engine::core::Controller::get<engine::graphics::GraphicsController>();
+        graphics->draw_skybox(shader, skybox);
+    }
+
     void MainController::update_camera() {
         auto gui_controller = engine::core::Controller::get<GUIController>();
         if (gui_controller->is_enabled()) {
@@ -83,6 +91,7 @@ namespace app {
     }
 
     void MainController::draw() {
+        draw_skybox();
         draw_backpack();
     }
 

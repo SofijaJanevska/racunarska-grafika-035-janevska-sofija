@@ -11,6 +11,8 @@ namespace app {
 
         void draw_backpack();
 
+        void draw_skybox();
+
         void update_camera();
 
         void update() override;
