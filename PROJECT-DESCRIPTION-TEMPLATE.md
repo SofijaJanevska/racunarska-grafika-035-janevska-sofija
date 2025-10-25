@@ -1,6 +1,6 @@
 # {NAME-OF-THE-PROJECT}
 
-{INDEX} - {STUDENT-FULL-NAME}  
+mi22035 - Sofija Janevska
 {PROJECT DESCRIPTION}
 
 ## Controls
@@ -26,6 +26,7 @@
 [ ] Parallax Mapping
 
 ### Group B:
+
 [ ] Bloom with the use of HDR  
 [ ] Deferred Shading  
 [ ] Point Shadows  

@@ -1,3 +1,4 @@
+#include <MyApp.hpp>
 #include <engine/core/Engine.hpp>
 
 /**
@@ -5,5 +6,6 @@
  */
 int main(int argc, char **argv) {
     // printf("bla\n");
-    return 0;
+    auto app = std::make_unique<app::MyApp>();
+    return app->run(argc, argv);
 }
