@@ -1,22 +1,23 @@
-# {NAME-OF-THE-PROJECT}
+# Jurassic Park
 
 mi22035 - Sofija Janevska
 {PROJECT DESCRIPTION}
 
 ## Controls
 
-{BUTTON1} -> {ACTION1}  
-{BUTTON2} -> {ACTION2}  
-...  
-{BUTTONN} -> {ACTIONN}
+W -> Move camera forward  
+S -> Move camera backward  
+A -> Move camera left  
+D -> Move camera right
+Esc -> Exit
 
 ## Features
 
 ### Fundamental:
 
-[ ] Model with lighting
-[ ] Two types of lighting with customizable colors and movement through GUI or ACTIONS
-[ ] {ACTION_X} --- AFTER_M_SECONDS---Triggers---> {EVENT_A} ---> AFTER_N_SECONDS---Triggers---> {EVENT_B}
+- Model with lighting
+  [ ] Two types of lighting with customizable colors and movement through GUI or ACTIONS
+  [ ] {ACTION_X} --- AFTER_M_SECONDS---Triggers---> {EVENT_A} ---> AFTER_N_SECONDS---Triggers---> {EVENT_B}
 
 ### Group A:
 
@@ -38,12 +39,5 @@ mi22035 - Sofija Janevska
 
 ## Models:
 
-[link1]   
-[link2]
-
-## Textures
-
-[link1]  
-[link2]
-
-{OTHER-RESOURCES}
+https://poly.pizza/m/9GyZw9gGPMq
+https://poly.pizza/m/12n6ICAVpYB

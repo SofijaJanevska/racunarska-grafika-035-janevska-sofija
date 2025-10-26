@@ -13,6 +13,10 @@ namespace app {
 
         void draw_skybox();
 
+        void draw_diplodocus();
+
+        void draw_rex();
+
         void update_camera();
 
         void update() override;
