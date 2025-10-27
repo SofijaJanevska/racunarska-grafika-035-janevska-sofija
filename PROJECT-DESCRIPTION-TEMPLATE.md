@@ -25,7 +25,9 @@ O -> Move light backward
 
 - Model with lighting
 - Two types of lighting with customizable colors and movement through GUI or ACTIONS
-  [ ] {ACTION_X} --- AFTER_M_SECONDS---Triggers---> {EVENT_A} ---> AFTER_N_SECONDS---Triggers---> {EVENT_B}
+- P pressed --- AFTER_0_SECONDS ---> [Point Light moves to (2.0, 5.0, 3.0)]
+  --- AFTER_2_SECONDS ---> [Point Light moves to (1.0, 0.5, 0.2)]
+  --- AFTER_3_SECONDS ---> [Point Light moves to (0.2, 0.5, 1.0)]
 
 ### Group A:
 

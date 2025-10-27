@@ -20,6 +20,8 @@ namespace app {
 
         void update_point_light();
 
+        void update_point_light_actions();
+
         void update() override;
 
         void begin_draw() override;
@@ -28,7 +30,12 @@ namespace app {
 
         void end_draw() override;
 
-        glm::vec3 pointLightPos = glm::vec3(2.0f, 4.0f, 3.0f);
+        glm::vec3 pointLightPos   = glm::vec3(2.0f, 4.0f, 3.0f);
+        glm::vec3 pointLightColor = glm::vec3(1.0f, 0.9f, 0.7f);
+
+        float actionTimer = 0.0f;
+        int actionStage   = 0;
+        bool pPressed     = false;
 
     public:
         std::string_view name() const override {

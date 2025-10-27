@@ -53,7 +53,7 @@ namespace app {
         shader->set_vec3("dirLightDir", glm::vec3(-0.2f, -1.0f, -0.3f));
         shader->set_vec3("dirLightColor", glm::vec3(1.0f, 1.0f, 1.0f));
         shader->set_vec3("pointLightPos", pointLightPos);
-        shader->set_vec3("pointLightColor", glm::vec3(1.0f, 0.9f, 0.7f));
+        shader->set_vec3("pointLightColor", pointLightColor);
         shader->set_vec3("viewPos", graphics->camera()->Position);
         shader->set_vec3("objectColor", glm::vec3(1.0f, 1.0f, 1.0f));
         shader->set_mat4("projection", graphics->projection_matrix());
@@ -76,7 +76,7 @@ namespace app {
         shader->set_vec3("dirLightDir", glm::vec3(-0.2f, -1.0f, -0.3f));
         shader->set_vec3("dirLightColor", glm::vec3(1.0f, 1.0f, 1.0f));
         shader->set_vec3("pointLightPos", pointLightPos);
-        shader->set_vec3("pointLightColor", glm::vec3(1.0f, 0.9f, 0.7f));
+        shader->set_vec3("pointLightColor", pointLightColor);
         shader->set_vec3("viewPos", graphics->camera()->Position);
         shader->set_vec3("objectColor", glm::vec3(1.0f, 1.0f, 1.0f));
         shader->set_mat4("projection", graphics->projection_matrix());
@@ -137,9 +137,41 @@ namespace app {
         }
     }
 
+    void MainController::update_point_light_actions() {
+        auto platform = engine::core::Controller::get<engine::platform::PlatformController>();
+        bool pressed  = platform->key(engine::platform::KeyId::KEY_P).is_down();
+
+        if (pressed && !pPressed) {
+            actionStage = 0;
+            actionTimer = 0.0f;
+        }
+
+        pPressed = pressed;
+        if (!pPressed) {
+            return;
+        }
+
+        float dt = platform->dt();
+        actionTimer += dt;
+
+        if (actionStage == 0 && actionTimer >= 0.0f) {
+            pointLightPos = glm::vec3(2.0f, 5.0f, 3.0f);
+            actionStage   = 1;
+            actionTimer   = 0.0f;
+        } else if (actionStage == 1 && actionTimer >= 2.0f) {
+            pointLightPos = glm::vec3(1.0f, 0.5f, 0.2f);
+            actionStage   = 2;
+            actionTimer   = 0.0f;
+        } else if (actionStage == 2 && actionTimer >= 3.0f) {
+            pointLightPos = glm::vec3(0.2f, 0.5f, 1.0f);
+            actionStage   = 3;
+        }
+    }
+
     void MainController::update() {
         update_camera();
         update_point_light();
+        update_point_light_actions();
     }
 
     void MainController::begin_draw() {
