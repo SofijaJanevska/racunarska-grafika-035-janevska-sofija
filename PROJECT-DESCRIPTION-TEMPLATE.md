@@ -10,6 +10,8 @@ S -> Move camera backward
 A -> Move camera left  
 D -> Move camera right
 Esc -> Exit
+F2 -> Enable/disable GUI
+LMB + Mouse move -> Rotate camera
 
 ## Features
 

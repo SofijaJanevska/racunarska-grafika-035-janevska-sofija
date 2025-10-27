@@ -9,8 +9,6 @@ namespace app {
 
         bool loop() override;
 
-        void draw_backpack();
-
         void draw_skybox();
 
         void draw_diplodocus();
