@@ -1,7 +1,9 @@
 # Jurassic Park
 
 mi22035 - Sofija Janevska
-{PROJECT DESCRIPTION}
+This project is a small interactive 3D scene inspired by Jurassic Park. The scene features a Diplodocus and a T-Rex
+model illuminated with both directional and point lighting. The point light can be dynamically moved through a sequence
+of events triggered by pressing the P key. Camera movement and light adjustments are controlled via keyboard and mouse.
 
 ## Controls
 
@@ -51,3 +53,5 @@ O -> Move light backward
 
 https://poly.pizza/m/9GyZw9gGPMq
 https://poly.pizza/m/12n6ICAVpYB
+
+https://opengameart.org/art-search?keys=skybox
