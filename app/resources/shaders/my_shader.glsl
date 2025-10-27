@@ -32,26 +32,35 @@ in vec3 FragPos;
 
 uniform sampler2D texture_diffuse1;
 
-uniform vec3 lightPos;
 uniform vec3 viewPos;
 
-uniform vec3 lightColor;
+uniform vec3 dirLightDir;
+uniform vec3 dirLightColor;
+
+uniform vec3 pointLightPos;
+uniform vec3 pointLightColor;
+
 uniform vec3 objectColor;
 
 void main() {
 
-    vec3 ambient = 0.15 * lightColor;
-
     vec3 norm = normalize(Normal);
-    vec3 lightDir = normalize(lightPos - FragPos);
-    float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = diff * lightColor;
+
+    vec3 lightDir = normalize(-dirLightDir);
+    float diffDir = max(dot(norm, lightDir), 0.0);
+    vec3 diffuseDir = diffDir * dirLightColor;
+    vec3 ambientDir = 0.1 * dirLightColor;
+
+    vec3 lightDirPoint = normalize(pointLightPos - FragPos);
+    float diffPoint = max(dot(norm, lightDirPoint), 0.0);
+    vec3 diffusePoint = diffPoint * pointLightColor;
+    vec3 ambientPoint = 0.1 * pointLightColor;
 
     vec3 viewDir = normalize(viewPos - FragPos);
-    vec3 reflectDir = reflect(-lightDir, norm);
+    vec3 reflectDir = reflect(-lightDirPoint, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
-    vec3 specular = 0.5 * spec * lightColor;
+    vec3 specular = 0.5 * spec * (dirLightColor + pointLightColor);
 
-    vec3 result = (ambient + diffuse + specular) * texture(texture_diffuse1, TexCoords).rgb * objectColor;
+    vec3 result = (ambientDir + diffuseDir +  ambientPoint + diffusePoint + specular) * texture(texture_diffuse1, TexCoords).rgb * objectColor;
     FragColor = vec4(result, 1.0);
 }

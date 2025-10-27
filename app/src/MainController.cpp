@@ -49,12 +49,16 @@ namespace app {
         engine::resources::Model *diplodocus = resources->model("diplodocus");
         engine::resources::Shader *shader    = resources->shader("my_shader");
         shader->use();
-        shader->set_vec3("lightPos", glm::vec3(2.0f, 4.0f, 3.0f));
+
+        shader->set_vec3("dirLightDir", glm::vec3(-0.2f, -1.0f, -0.3f));
+        shader->set_vec3("dirLightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+        shader->set_vec3("pointLightPos", glm::vec3(2.0f, 4.0f, 3.0f));
+        shader->set_vec3("pointLightColor", glm::vec3(1.0f, 0.9f, 0.7f));
         shader->set_vec3("viewPos", graphics->camera()->Position);
-        shader->set_vec3("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
         shader->set_vec3("objectColor", glm::vec3(1.0f, 1.0f, 1.0f));
         shader->set_mat4("projection", graphics->projection_matrix());
         shader->set_mat4("view", graphics->camera()->view_matrix());
+
         glm::mat4 model = glm::mat4(1.0f);
         model           = glm::translate(model, glm::vec3(-5.0f, 0.0f, -9.0f));
         model           = glm::scale(model, glm::vec3(0.007f));
@@ -68,12 +72,16 @@ namespace app {
         engine::resources::Model *rex     = resources->model("rex");
         engine::resources::Shader *shader = resources->shader("my_shader");
         shader->use();
-        shader->set_vec3("lightPos", glm::vec3(2.0f, 4.0f, 3.0f));
+
+        shader->set_vec3("dirLightDir", glm::vec3(-0.2f, -1.0f, -0.3f));
+        shader->set_vec3("dirLightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+        shader->set_vec3("pointLightPos", glm::vec3(2.0f, 4.0f, 3.0f));
+        shader->set_vec3("pointLightColor", glm::vec3(1.0f, 0.9f, 0.7f));
         shader->set_vec3("viewPos", graphics->camera()->Position);
-        shader->set_vec3("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
         shader->set_vec3("objectColor", glm::vec3(1.0f, 1.0f, 1.0f));
         shader->set_mat4("projection", graphics->projection_matrix());
         shader->set_mat4("view", graphics->camera()->view_matrix());
+
         glm::mat4 model = glm::mat4(1.0f);
         model           = glm::translate(model, glm::vec3(3.0f, 0.0f, -5.0f));
         model           = glm::scale(model, glm::vec3(0.03f));
