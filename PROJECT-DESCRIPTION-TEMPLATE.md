@@ -12,13 +12,19 @@ D -> Move camera right
 Esc -> Exit
 F2 -> Enable/disable GUI
 LMB + Mouse move -> Rotate camera
+J -> Move light left  
+L -> Move light right  
+I -> Move light up
+K -> Move light down
+U -> Move light forward
+O -> Move light backward
 
 ## Features
 
 ### Fundamental:
 
 - Model with lighting
-  [ ] Two types of lighting with customizable colors and movement through GUI or ACTIONS
+- Two types of lighting with customizable colors and movement through GUI or ACTIONS
   [ ] {ACTION_X} --- AFTER_M_SECONDS---Triggers---> {EVENT_A} ---> AFTER_N_SECONDS---Triggers---> {EVENT_B}
 
 ### Group A:

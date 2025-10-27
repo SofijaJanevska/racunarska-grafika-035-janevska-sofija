@@ -52,7 +52,7 @@ namespace app {
 
         shader->set_vec3("dirLightDir", glm::vec3(-0.2f, -1.0f, -0.3f));
         shader->set_vec3("dirLightColor", glm::vec3(1.0f, 1.0f, 1.0f));
-        shader->set_vec3("pointLightPos", glm::vec3(2.0f, 4.0f, 3.0f));
+        shader->set_vec3("pointLightPos", pointLightPos);
         shader->set_vec3("pointLightColor", glm::vec3(1.0f, 0.9f, 0.7f));
         shader->set_vec3("viewPos", graphics->camera()->Position);
         shader->set_vec3("objectColor", glm::vec3(1.0f, 1.0f, 1.0f));
@@ -75,7 +75,7 @@ namespace app {
 
         shader->set_vec3("dirLightDir", glm::vec3(-0.2f, -1.0f, -0.3f));
         shader->set_vec3("dirLightColor", glm::vec3(1.0f, 1.0f, 1.0f));
-        shader->set_vec3("pointLightPos", glm::vec3(2.0f, 4.0f, 3.0f));
+        shader->set_vec3("pointLightPos", pointLightPos);
         shader->set_vec3("pointLightColor", glm::vec3(1.0f, 0.9f, 0.7f));
         shader->set_vec3("viewPos", graphics->camera()->Position);
         shader->set_vec3("objectColor", glm::vec3(1.0f, 1.0f, 1.0f));
@@ -113,8 +113,33 @@ namespace app {
         }
     }
 
+    void MainController::update_point_light() {
+        auto platform = engine::core::Controller::get<engine::platform::PlatformController>();
+        float dt      = platform->dt();
+
+        if (platform->key(engine::platform::KeyId::KEY_J).is_down()) {
+            pointLightPos.x -= dt;
+        }
+        if (platform->key(engine::platform::KeyId::KEY_L).is_down()) {
+            pointLightPos.x += dt;
+        }
+        if (platform->key(engine::platform::KeyId::KEY_I).is_down()) {
+            pointLightPos.y += dt;
+        }
+        if (platform->key(engine::platform::KeyId::KEY_K).is_down()) {
+            pointLightPos.y -= dt;
+        }
+        if (platform->key(engine::platform::KeyId::KEY_U).is_down()) {
+            pointLightPos.z -= dt;
+        }
+        if (platform->key(engine::platform::KeyId::KEY_O).is_down()) {
+            pointLightPos.z += dt;
+        }
+    }
+
     void MainController::update() {
         update_camera();
+        update_point_light();
     }
 
     void MainController::begin_draw() {
